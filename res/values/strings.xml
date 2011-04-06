@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">Java Code Viewer</string>
+    
+    <string name="dlg_findtext_label">"Enter the keyword."</string>
+    <string name="dlg_textsize_label">"Adjust font size."</string>
+    <string name="dlg_textsize_dip">"dip"</string>
+    <string name="dlg_textsize_sample">"ABC abc 1+2*3/4-5"</string>
+    <string name="dlg_button_ok">"Ok"</string>
+    <string name="dlg_button_cancel">"Cancel"</string>
+        
+    <string name="menu_findtext">"Find"</string>
+    <string name="menu_textsize">"Text size"</string>
+    <string name="menu_textsize_small">"Small(10dip)"</string>
+    <string name="menu_textsize_medium">"Medium(16dip)"</string>
+    <string name="menu_textsize_big">"Big(22dip)"</string>
+    <string name="menu_textsize_user">"Customize..."</string>
+    <string name="menu_findprevtext">"Find previous"</string>
+    <string name="menu_findnexttext">"Find next"</string>
+    <string name="menu_autowordwrap">"Auto Word wrap"</string>
+    <string name="menu_resetspanning">"Reset Spanning"</string>
+    <string name="menu_save">"Save"</string>
+    
+    
+    <string name="toast_cannotfind_space">"Can not find a space."</string>
+    <string name="toast_notfound">"Can not found the words."</string>
+    <string name="toast_found">" words found."</string>
+    <string name="msg_save">"Do you want to save file?"</string>
+    <string name="cannot_save">"Now, saving..."</string>
+    <string name="cannot_load">"Cannot load file."</string>
+    
+    <string name="menu_encoding">Encoding</string>
+    
+    <string name="menu_encoding_0">Default Encoding</string>
+    <string name="menu_encoding_1">MS949</string>
+    <string name="menu_encoding_2">EUC-JP</string>
+    <string name="menu_encoding_3">EUC-KR</string>
+    <string name="menu_encoding_4">US-ASCII</string>
+    <string name="menu_encoding_5">UTF-8</string>
+    <string name="menu_encoding_6">UTF-16</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+>
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:scrollbars="horizontal|vertical"
+		android:drawingCacheQuality="auto"
+	>
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		>
+			<EditText
+				android:id="@+id/main_edittext01"
+				android:layout_width="wrap_content" 
+				android:text=""
+				android:layout_height="wrap_content"
+				android:gravity="top|left"
+				android:layout_margin="0dip"
+				android:background="#ffffffff"
+				android:padding="3dip"
+				android:bufferType="spannable"
+				android:editable="true"
+				android:textSize="16.0dip"
+				android:scrollHorizontally="true">
+			</EditText>
+			<View
+				android:id="@+id/main_blank"
+				android:visibility="gone"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+			></View>
+		</LinearLayout>
+	</ScrollView>
+	
+	<LinearLayout
+		android:id="@+id/main_findlayout"
+		android:layout_height="200dp"
+		android:layout_weight="1"
+		android:background="#64ffffff" android:paddingBottom="10dp" android:paddingTop="5dp" android:layout_width="fill_parent" android:gravity="center" android:layout_gravity="bottom"
+		android:visibility="gone"
+	>
+		<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+			<ImageButton android:id="@+id/main_button01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/findleft" android:layout_gravity="center" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<TextView android:text="@string/menu_findprevtext" android:id="@+id/TextView01" android:layout_height="wrap_content" android:singleLine="true" android:ellipsize="end" android:layout_width="fill_parent" android:textColor="#ff000000" android:gravity="center"/>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+			<ImageButton android:id="@+id/main_button02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/findok" android:layout_gravity="center" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<TextView android:text="@string/dlg_button_ok" android:id="@+id/TextView02" android:layout_height="wrap_content" android:layout_width="fill_parent" android:singleLine="true" android:ellipsize="end" android:textColor="#ff000000" android:gravity="center"/>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+			<ImageButton android:id="@+id/main_button03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/findright" android:layout_gravity="center" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<TextView android:text="@string/menu_findnexttext" android:id="@+id/TextView03" android:layout_height="wrap_content" android:ellipsize="end" android:layout_width="fill_parent" android:singleLine="true" android:textColor="#ff000000" android:gravity="center"/>
+		</LinearLayout>	
+	</LinearLayout>
+	
+</LinearLayout>

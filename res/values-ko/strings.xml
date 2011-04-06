@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">Java Code Viewer</string>
+    
+    <string name="dlg_findtext_label">찾을 단어를 입력하세요.</string>
+    <string name="dlg_textsize_label">글자 크기를 조절하세요.</string>
+    <string name="dlg_textsize_dip">dip</string>
+    <string name="dlg_textsize_sample">가나다 ABC 1+2*3/4-5</string>
+    <string name="dlg_button_ok">확인</string>
+    <string name="dlg_button_cancel">취소</string>
+        
+    <string name="menu_findtext">찾기</string>
+    <string name="menu_textsize">글자 크기</string>
+    <string name="menu_textsize_small">작게(10dip)</string>
+    <string name="menu_textsize_medium">중간(16dip)</string>
+    <string name="menu_textsize_big">크게(22dip)</string>
+    <string name="menu_textsize_user">사용자 정의...</string>
+    <string name="menu_findprevtext">이전 찾기</string>
+    <string name="menu_findnexttext">다음 찾기</string>
+    <string name="menu_autowordwrap">자동 줄 바꿈</string>
+    <string name="menu_resetspanning">서식 새로고침</string>
+    <string name="menu_save">저장</string>
+    
+    <string name="toast_cannotfind_space">공백으로는 찾을 수 없습니다.</string>
+    <string name="toast_notfound">단어를 찾지 못하였습니다.</string>
+    <string name="toast_found">개 단어를 찾았습니다.</string>
+    <string name="msg_save">파일을 저장하시겠습니까?</string>
+    
+    <string name="menu_encoding">인코딩</string>
+    
+    <string name="menu_encoding_0">Default Encoding</string>
+    <string name="menu_encoding_1">한글 확장 완성형(MS949)</string>
+    <string name="menu_encoding_2">EUC-JP</string>
+    <string name="menu_encoding_3">EUC-KR</string>
+    <string name="menu_encoding_4">US-ASCII</string>
+    <string name="menu_encoding_5">UTF-8</string>
+    <string name="menu_encoding_6">UTF-16</string>
+    
+</resources>

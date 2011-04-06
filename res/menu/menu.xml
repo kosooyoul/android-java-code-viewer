@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/findtext" android:title="@string/menu_findtext" android:alphabeticShortcut="1"/>
+	<item android:id="@+id/textsize" android:title="@string/menu_textsize" android:alphabeticShortcut="2">
+		<menu>
+			<item android:id="@+id/size10" android:title="@string/menu_textsize_small" android:alphabeticShortcut="1"/>
+			<item android:id="@+id/size16" android:title="@string/menu_textsize_medium" android:alphabeticShortcut="2"/>
+			<item android:id="@+id/size22" android:title="@string/menu_textsize_big" android:alphabeticShortcut="3"/>
+			<item android:id="@+id/sizein" android:title="@string/menu_textsize_user" android:alphabeticShortcut="4"/>
+		</menu>
+	</item>
+	<item android:id="@+id/encoding" android:title="@string/menu_encoding" android:alphabeticShortcut="3">
+		<menu>
+			<item android:id="@+id/encoding0" android:title="@string/menu_encoding_0" android:alphabeticShortcut="1"/>
+			<item android:id="@+id/encoding1" android:title="@string/menu_encoding_1" android:alphabeticShortcut="2"/>
+			<item android:id="@+id/encoding2" android:title="@string/menu_encoding_2" android:alphabeticShortcut="3"/>
+			<item android:id="@+id/encoding3" android:title="@string/menu_encoding_3" android:alphabeticShortcut="4"/>
+			<item android:id="@+id/encoding4" android:title="@string/menu_encoding_4" android:alphabeticShortcut="5"/>
+			<item android:id="@+id/encoding5" android:title="@string/menu_encoding_5" android:alphabeticShortcut="6"/>
+			<item android:id="@+id/encoding6" android:title="@string/menu_encoding_6" android:alphabeticShortcut="7"/>
+		</menu>
+	</item>
+	<item android:id="@+id/findprevtext" android:title="@string/menu_findprevtext" android:alphabeticShortcut="4"/>
+	<item android:id="@+id/findnexttext" android:title="@string/menu_findnexttext" android:alphabeticShortcut="5"/>
+	<item android:id="@+id/autowordwrap" android:title="@string/menu_autowordwrap" android:alphabeticShortcut="6"/>
+	<item android:id="@+id/resetspanning" android:title="@string/menu_resetspanning" android:alphabeticShortcut="7"/>
+	<item android:id="@+id/save" android:title="@string/menu_save" android:alphabeticShortcut="8"/>
+</menu>

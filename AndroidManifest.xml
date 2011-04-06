@@ -1,0 +1,23 @@
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	package="net.ahyane.javacodeviewer"
+	android:versionCode="14" android:versionName="1.13">
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<application android:label="@string/app_label" android:icon="@drawable/icon2">
+		<activity
+			android:name="CodeViewerActivity"
+			android:label="@string/app_label"
+			android:theme="@android:style/Theme.Light"
+			>
+			<intent-filter>
+				<category android:name="android.intent.category.DEFAULT" />
+				<action android:name="android.intent.action.VIEW" />
+				<data android:scheme="file" />
+				<data android:mimeType="text/plain"/>
+				<data android:mimeType="text/x-java"/>
+			</intent-filter>
+		</activity>
+	</application>
+	<uses-sdk android:minSdkVersion="4" />
+</manifest>
+
