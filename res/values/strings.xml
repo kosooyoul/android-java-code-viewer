@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_label">Java Code Viewer</string>
+    <string name="version">Java Code Viewer [Version 1.14]</string>
+    <string name="copyright">Copyright Ahyane. All right reserved.</string>
     
     <string name="dlg_findtext_label">"Enter the keyword."</string>
     <string name="dlg_textsize_label">"Adjust font size."</string>

@@ -1,0 +1,38 @@
+version code = 15
+version = 1.14
+
+2011.04.07 (v1.14)
+1. Modify the Find Layout.
+2. Fix reported error.
+3. Add Application Info.
+
+2011.04.06 (v1.13)
+1. "Find" function modified.
+2. Can edit and save.
+3. But, need to refresh text style manually from menu.
+4. Text encode list modified.
+5. Intent filter modified. - Can run from AndExplorer, ASTRO, etc.
+   1) scheme = "file"
+   2) mimeType = "text/x-java", "text/plain"
+
+
+2011.04.07 (v1.14)
+1. 찾기 레이아웃 수정
+2. 레포트된 오류 수정
+3. 어플리케이션 정보 삽입
+
+2011.04.06 (v1.13)
+1. 찾기 기능 수정
+2. 편집 및 저장 가능(menu key)
+3. 단, 텍스트 서식은 메뉴를 통해 수동으로 새로고침
+4. 인코딩 목록 수정
+5. 인텐트 필터 수정 - 탐색기 어플에서 실행 가능
+   1) scheme = "file"
+   2) mimeType = "text/x-java", "text/plain"
+
+
++ Appstore state
+　- Java Code Viewer v1.14, Applications: Tools, In-app Products
+　　: Comments = 501
+　　: Installs = 39842 total, 20551 active (51%)
+　　: FreeErrors = 11 Published

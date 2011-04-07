@@ -31,9 +31,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,11 +60,15 @@ public class CodeViewerActivity extends Activity {
 	private static final int found_bgcolor = 0xffc8c800; 
 	private static final int selectedfound_bgcolor = 0xff00c8ff; 
 
+	private boolean isNew = true;
+	
     private Uri mFileURI = null;
     private StringBuffer mStringBuffer = null;
-    private EditText mCodeView = null;
-    private View mBlank = null;
+    private EditCodeView mCodeView = null;
+//    private View mBlank = null;
+    private ScrollView mScrollView = null;
     private LinearLayout mFindLayout = null;
+    private LinearLayout mInfoLayout = null;
     private Spannable mSpan = null;
     private ArrayList<Integer> mFoundIndexList = null;
     private int mFoundIndexListPointer = 0;
@@ -76,6 +84,7 @@ public class CodeViewerActivity extends Activity {
     private static final int MSG_TYPE_PROGRESS_OFF = 8;
     private static final int MSG_TYPE_PROGRESS_SET = 9;
     private static final int MSG_TYPE_PROGRESS_BASE_INCREASE = 10;
+    private static final int MSG_TYPE_FADE_OUT_INFO = 11;
     
     private static final String ENCODING_DEFAULT = "(default)";
     
@@ -157,11 +166,15 @@ public class CodeViewerActivity extends Activity {
 				case MSG_TYPE_PROGRESS_ON:
 		            setProgressBarIndeterminateVisibility(true);
 					setProgressBarVisibility(true);
+					mCodeView.setFocusable(false);
+					mCodeView.setFocusableInTouchMode(false);
 					baseValue = 0;
 					break;
 				case MSG_TYPE_PROGRESS_OFF:
 		            setProgressBarIndeterminateVisibility(false);
 					setProgressBarVisibility(false);
+					mCodeView.setFocusable(true);
+					mCodeView.setFocusableInTouchMode(true);
 					break;
 				case MSG_TYPE_PROGRESS_SET:
 					if(baseValue + msg.arg1 < 10000){setProgress(baseValue + msg.arg1);}
@@ -171,10 +184,21 @@ public class CodeViewerActivity extends Activity {
 					baseValue += 1000;
 					setProgress(baseValue);
 					break;
+				case MSG_TYPE_FADE_OUT_INFO:
+					Animation fadeOutAnimation = AnimationUtils.loadAnimation(CodeViewerActivity.this, R.anim.fade_out);
+					fadeOutAnimation.setAnimationListener(new AnimationListener(){
+							public void onAnimationEnd(Animation animation) {
+								mInfoLayout.setVisibility(View.GONE);	
+							}
+							public void onAnimationRepeat(Animation animation) {}
+							public void onAnimationStart(Animation animation) {}
+						}
+					);
+			        mInfoLayout.setAnimation(fadeOutAnimation);
+					break;
 				default:
 					super.handleMessage(msg);
 			}
-			
 		}
     };
     
@@ -265,6 +289,11 @@ public class CodeViewerActivity extends Activity {
 	            //set title progress
 	            mHandler.sendMessage(mHandler.obtainMessage(MSG_TYPE_PROGRESS_OFF));
 	            
+	            if(isNew == true){
+	            	isNew = false;
+	            	mHandler.sendMessage(mHandler.obtainMessage(MSG_TYPE_FADE_OUT_INFO));
+	            }
+	            
 			}catch(FileNotFoundException e){
 				e.printStackTrace();
 			}catch(IOException e){
@@ -302,8 +331,8 @@ public class CodeViewerActivity extends Activity {
 
         setContentView(R.layout.main);
         
-        mCodeView = (EditText) findViewById(R.id.main_edittext01);
-        mBlank = (View) findViewById(R.id.main_blank);
+        mCodeView = (EditCodeView) findViewById(R.id.main_edittext01);
+//        mBlank = (View) findViewById(R.id.main_blank);
         mFindLayout = (LinearLayout) findViewById(R.id.main_findlayout);
         ImageButton prevFindButton = (ImageButton) findViewById(R.id.main_button01);
         ImageButton findokButton = (ImageButton) findViewById(R.id.main_button02);
@@ -323,7 +352,19 @@ public class CodeViewerActivity extends Activity {
 				findNextText();
 			}
         });
+
+        //scrollview
+        mScrollView = (ScrollView) findViewById(R.id.scrollview);
+        mCodeView.setParentView(mScrollView);
         
+        
+        //info layout
+        mInfoLayout = (LinearLayout) findViewById(R.id.main_infolayout);
+
+        //no texteditor focus
+        //((Button) findViewById(R.id.btn_none)).requestFocus();
+        
+        //url
         mFileURI = getIntent().getData();
         if(mFileURI != null){
             mThread = new Thread(mCodeLoaderRunnable);
@@ -341,12 +382,12 @@ public class CodeViewerActivity extends Activity {
 	@Override
 	protected void onResume() {
 		//set find function
-    	mBlank.setLayoutParams(
-    		new LinearLayout.LayoutParams(
-    			LinearLayout.LayoutParams.FILL_PARENT,
-    			getWindowManager().getDefaultDisplay().getHeight() / 2
-    		)
-    	);
+//    	mBlank.setLayoutParams(
+//    		new LinearLayout.LayoutParams(
+//    			LinearLayout.LayoutParams.WRAP_CONTENT,
+//    			getWindowManager().getDefaultDisplay().getHeight() / 2
+//    		)
+//    	);
 		super.onResume();
 	}
 
@@ -800,7 +841,7 @@ public class CodeViewerActivity extends Activity {
 				}
 	
 				//file end
-				if(string_index >= string.length){
+				if(string_index >= string.length - 1){
 					//set value progress
 			        mHandler.sendMessage(mHandler.obtainMessage(MSG_TYPE_PROGRESS_SET, 10000, 0));
 					break;
@@ -817,8 +858,8 @@ public class CodeViewerActivity extends Activity {
 				}
 			}
 		}catch(Exception e){
-			e.printStackTrace();
 			try{
+				e.printStackTrace();
 				Log.e(TAG, "Error String = " + mStringBuffer.substring(string_index));
 			}catch(Exception e2){
 				Log.e(TAG, "Error String is Error.");
